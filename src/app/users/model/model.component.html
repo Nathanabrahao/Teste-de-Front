@@ -1,0 +1,46 @@
+<button mat-icon-button style="float: right; margin: 5px" matDialogClose>
+    <mat-icon>close</mat-icon>
+</button>
+
+<mat-dialog-content style="text-align: center">
+    <header>
+        <h1>Adicionar novo Usuario</h1>
+    </header>
+
+    <p>
+        <mat-form-field style="width: 100%;">
+            <input matInput placeholder="nome" id="nome" type="text">
+            <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field style="width: 100%;">
+            <input matInput placeholder="email" id="email" type="email">
+            <mat-icon matSuffix>drafts</mat-icon>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field style="width: 100%;">
+            <input matInput placeholder="cargo" id="cargo" type="text">
+            <mat-icon matSuffix>domain</mat-icon>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field style="width: 100%;">
+            <input matInput placeholder="cpf" id="cpf" type="number">
+            <mat-icon matSuffix>camera_front</mat-icon>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field style="width: 100%;">
+            <input matInput type="date" id="data" class="form-control" required autofocus/>  
+            <mat-icon matSuffix>cake</mat-icon>
+        </mat-form-field>
+    </p>
+    
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-raised-button color="primary" type="submit">Save</button>
+    <button mat-raised-button color="warn" matDialogClose>Cancel</button>
+</mat-dialog-actions>
