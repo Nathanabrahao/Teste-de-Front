@@ -4,7 +4,9 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { UsersDataSource, UsersItem } from './users-datasource';
 import { MatDialog } from '@angular/material/dialog';
-import { ModelComponent } from './model/model.component';
+import { ModelComponent } from '../model/model.component';
+import { HttpClient, HttpHeaders, } from '@angular/common/http';
+import { DataSource } from '@angular/cdk/table';
 
 
 @Component({
@@ -16,12 +18,14 @@ export class UsersComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<UsersItem>;
-  dataSource = new UsersDataSource();
+  dataSource: UsersDataSource;
 
 
   displayedColumns = ['name', 'email', 'cargo', 'cpf', 'nascimento', 'comandos'];
 
-  constructor(private matDialog: MatDialog) { } // Removed incorrect parenthesis
+  constructor(private matDialog: MatDialog, private http: HttpClient) { 
+    this.dataSource = new UsersDataSource(http); // Initialize dataSource with HttpClient instance
+  } // Removed incorrect parenthesis
 
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
@@ -35,7 +39,7 @@ export class UsersComponent implements AfterViewInit {
     });
   }
 
-  editDialog(){
+  editDialog() {
     this.matDialog.open(ModelComponent, {
       width: '60%'
     });

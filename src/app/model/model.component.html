@@ -9,31 +9,31 @@
 
     <p>
         <mat-form-field style="width: 100%;">
-            <input matInput placeholder="nome" id="nome" type="text">
+            <input matInput placeholder="nome" id="nome" type="text" [(ngModel)]="nome">
             <mat-icon matSuffix>person</mat-icon>
         </mat-form-field>
     </p>
     <p>
         <mat-form-field style="width: 100%;">
-            <input matInput placeholder="email" id="email" type="email">
+            <input matInput placeholder="email" id="email" type="email" [(ngModel)]="email">
             <mat-icon matSuffix>drafts</mat-icon>
         </mat-form-field>
     </p>
     <p>
         <mat-form-field style="width: 100%;">
-            <input matInput placeholder="cargo" id="cargo" type="text">
+            <input matInput placeholder="cargo" id="cargo" type="text" [(ngModel)]="cargo">
             <mat-icon matSuffix>domain</mat-icon>
         </mat-form-field>
     </p>
     <p>
         <mat-form-field style="width: 100%;">
-            <input matInput placeholder="cpf" id="cpf" type="number">
+            <input matInput placeholder="cpf" id="cpf" type="number" [(ngModel)]="cpf">
             <mat-icon matSuffix>camera_front</mat-icon>
         </mat-form-field>
     </p>
     <p>
         <mat-form-field style="width: 100%;">
-            <input matInput type="date" id="data" class="form-control" required autofocus/>  
+            <input matInput type="date" id="data" class="form-control" required autofocus [(ngModel)]="data"/>  
             <mat-icon matSuffix>cake</mat-icon>
         </mat-form-field>
     </p>
@@ -41,6 +41,6 @@
 
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-    <button mat-raised-button color="primary" type="submit">Save</button>
+    <button mat-raised-button color="primary" (click)="salvar()">Save</button>
     <button mat-raised-button color="warn" matDialogClose>Cancel</button>
 </mat-dialog-actions>
