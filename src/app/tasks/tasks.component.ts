@@ -19,7 +19,7 @@ export class TasksComponent implements AfterViewInit {
   @ViewChild(MatTable) table!: MatTable<TasksItem>;
   dataSource: TasksDataSource;
 
-  displayedColumns: string[] = ['usuario', 'tarefa', 'data'];
+  displayedColumns: string[] = ['usuario', 'tarefa', 'data', 'comandos'];
 
   constructor(private matDialog: MatDialog, private http: HttpClient) {
     this.dataSource = new TasksDataSource(http);

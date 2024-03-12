@@ -1,0 +1,92 @@
+editDialog() {
+    this.matDialog.open(ModelComponent, {
+      width: '60%' // Passa o ID do usuário como parte dos dados do diálogo
+    });
+
+export class editModel{
+nome: string = '';
+  email: string = '';
+  cargo: string = '';
+  cpf: string = '';
+  data: string = '';
+
+  constructor(private http: HttpClient) { }
+
+
+editar() {
+    const dados = {
+      "name": this.nome,
+      "email": this.email,
+      "cargo": this.cargo,
+      "cpf": this.cpf,
+      "nascimento": Date.parse(this.data)
+    };
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'applicationId': 'seuNomeCompleto'
+      })
+
+    };
+
+
+    this.http.put<any>('https://dynamic-tawny.vercel.app/usuarios', JSON.stringify(dados), httpOptions)
+      .subscribe(
+        response => {
+          console.log('Resposta do servidor:', response);
+          // Você pode adicionar aqui qualquer ação adicional após o sucesso da requisição
+        },
+        error => {
+          console.error('Erro ao enviar requisição:', error);
+          // Você pode adicionar aqui qualquer ação adicional para lidar com o erro
+        }
+      );
+  }
+
+
+deleteInfo() {
+    this.matDialog.open(ModelComponent, {
+      width: '60%' // Passa o ID do usuário como parte dos dados do diálogo
+    });
+
+export class editModel{
+nome: string = '';
+  email: string = '';
+  cargo: string = '';
+  cpf: string = '';
+  data: string = '';
+
+  constructor(private http: HttpClient) { }
+
+
+editar() {
+    const dados = {
+      "name": '',
+      "email": '',
+      "cargo": '',
+      "cpf": '',
+      "nascimento": ''
+    };
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'applicationId': 'seuNomeCompleto'
+      })
+
+    };
+
+
+    this.http.delete<any>('https://dynamic-tawny.vercel.app/usuarios', JSON.stringify(dados), httpOptions)
+      .subscribe(
+        response => {
+          console.log('Resposta do servidor:', response);
+          // Você pode adicionar aqui qualquer ação adicional após o sucesso da requisição
+        },
+        error => {
+          console.error('Erro ao enviar requisição:', error);
+          // Você pode adicionar aqui qualquer ação adicional para lidar com o erro
+        }
+      );
+  }

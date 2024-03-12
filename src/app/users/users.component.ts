@@ -43,6 +43,7 @@ export class UsersComponent implements AfterViewInit {
     this.matDialog.open(ModelComponent, {
       width: '60%' // Passa o ID do usuário como parte dos dados do diálogo
     });
+    
   }
 
   deleteInfo(){
