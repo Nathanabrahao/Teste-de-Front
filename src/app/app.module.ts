@@ -17,13 +17,15 @@ import { MatInputModule} from '@angular/material/input'
 import { MatDialogModule } from '@angular/material/dialog';
 import { ModelComponent } from './model/model.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ModelTasksComponent } from './model-tasks/model-tasks.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
     TasksComponent,
-    ModelComponent
+    ModelComponent,
+    ModelTasksComponent
   ],
   imports: [
     BrowserModule,

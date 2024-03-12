@@ -1,0 +1,34 @@
+<button mat-icon-button style="float: right; margin: 5px" matDialogClose>
+    <mat-icon>close</mat-icon>
+</button>
+
+<mat-dialog-content style="text-align: center">
+    <header>
+        <h1>Adicionar nova Tarefa</h1>
+    </header>
+
+    <p>
+        <mat-form-field style="width: 100%;">
+            <input matInput placeholder="nomeResponsavel" id="nomeResponsavel" type="text" [(ngModel)]="usuario">
+            <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field style="width: 100%;">
+            <input matInput placeholder="tarefa" id="tarefa" type="text" [(ngModel)]="tarefa">
+            <mat-icon matSuffix>check</mat-icon>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field style="width: 100%;">
+            <input matInput type="date" id="data" class="form-control" required autofocus [(ngModel)]="data"/>  
+            <mat-icon matSuffix>date_range</mat-icon>
+        </mat-form-field>
+    </p>
+    
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-raised-button color="primary" (click)="salvar()">Save</button>
+    <button mat-raised-button color="warn" matDialogClose>Cancel</button>
+</mat-dialog-actions>

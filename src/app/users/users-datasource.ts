@@ -19,11 +19,7 @@ export interface UsersItem {
 
 
 // TODO: replace this with real data from your application
-const EXAMPLE_DATA: UsersItem[] = [
-];
-
-
-
+const EXAMPLE_DATA: UsersItem[] = [];
 
 /**
  * Data source for the Users view. This class should
