@@ -54,6 +54,7 @@ export class UsersDataSource extends DataSource<UsersItem> {
           response => {
             console.log('Resposta do servidor:', response);
             // Você pode adicionar aqui qualquer ação adicional após o sucesso da requisição
+            this.data = response
           },
           error => {
             console.error('Erro ao enviar requisição:', error);

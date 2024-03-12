@@ -21,8 +21,8 @@ export class UsersComponent implements AfterViewInit {
   dataSource: UsersDataSource;
 
 
-  displayedColumns = ['name', 'email', 'cargo', 'cpf', 'nascimento', 'comandos'];
-
+  displayedColumns:string[] = ['name', 'email', 'cargo', 'cpf', 'nascimento', 'comandos'];
+  
   constructor(private matDialog: MatDialog, private http: HttpClient) { 
     this.dataSource = new UsersDataSource(http); // Initialize dataSource with HttpClient instance
   } // Removed incorrect parenthesis
@@ -41,10 +41,20 @@ export class UsersComponent implements AfterViewInit {
 
   editDialog() {
     this.matDialog.open(ModelComponent, {
-      width: '60%'
+      width: '60%' // Passa o ID do usuário como parte dos dados do diálogo
     });
   }
 
+  deleteInfo(){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'applicationId': 'seuNomeCompleto'
+      })  
+      
+      
+  } 
+  }
 
 
 }

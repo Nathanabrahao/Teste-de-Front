@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { UsersDataSource } from '../users/users-datasource'
 
 @Component({
   selector: 'app-model',
@@ -15,7 +16,14 @@ export class ModelComponent {
   cpf: string = '';
   data: string = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
+
+  validarEmail(email: string): boolean {
+    // Expressão regular para validar o formato de e-mail
+    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return regex.test(this.email);
+  }
+
 
   salvar() {
     const coleta = {
@@ -26,12 +34,20 @@ export class ModelComponent {
       "nascimento": Date.parse(this.data)
     };
 
+    this.validarEmail(this.email)
+
+    if (this.email) {
+      console.log("O e-mail é válido.");
+    } else {
+      console.log("O e-mail não é válido.");
+    }
+
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'applicationId': 'seuNomeCompleto'
       })
-      
+
     };
 
 
@@ -47,4 +63,8 @@ export class ModelComponent {
         }
       );
   }
+
+  
 }
+
+
